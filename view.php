@@ -12,7 +12,6 @@ if ($id) {
 } else {
     throw new moodle_exception('missingparameter');
 }
-
 require_login($course, true, $cm);
 
 $PAGE->set_url('/mod/questionextractor/view.php', array('id' => $cm->id));
