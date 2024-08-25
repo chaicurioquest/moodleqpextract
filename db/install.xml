@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="mod/questionextractor/db" VERSION="20240825" COMMENT="XMLDB file for Moodle mod/questionextractor"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <!-- Main table for the questionextractor plugin -->
+    <TABLE NAME="questionextractor" COMMENT="Stores data for the questionextractor plugin">
+      <FIELDS>
+        <!-- Auto-incrementing ID field -->
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        
+        <!-- Foreign key to the course this module instance is part of -->
+        <FIELD NAME="course" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+
+                <!-- Name field to store the instance name -->
+        <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
+        
+        <!-- Data field for storing plugin-specific information -->
+        <FIELD NAME="data" TYPE="text" NOTNULL="true" SEQUENCE="false"/>
+
+        <!-- Introduction field, which allows rich text content -->
+        <FIELD NAME="intro" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+
+        <!-- Format of the introduction field (e.g., HTML, plain text) -->
+        <FIELD NAME="introformat" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        
+        <!-- Timestamp for when the instance was created -->
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        
+        <!-- Timestamp for when the instance was last modified (optional but useful) -->
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <!-- Primary key for the table -->
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+  </TABLES>
+</XMLDB>
